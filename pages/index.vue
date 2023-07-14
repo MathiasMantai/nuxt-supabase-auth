@@ -13,7 +13,8 @@
                 <input type="submit" class="w-full bg-green-500 p-2" :value="submitButton">
             </form>
         </div>
-    </GradientBorderCard>
+    </GradientBorderCard >
+    <AlertModal :hidden="loading" />
     </div>
 
     </main>
@@ -23,8 +24,9 @@
 
     const email = ref('')
     const client = useSupabaseClient()
-    const loading = ref(false)
+    const loading = ref(true)
     const submitButton = ref('Send')
+    let error = false
     async function handleLogin()
     {
         console.log(email.value)
@@ -33,12 +35,14 @@
             submitButton.value = 'Loading...'
             const { error } = await client.auth.signInWithOtp({ email: email.value })
             if (error) throw error
-            alert('Check your email for the login link!')
         } catch (error: any) {
             alert(error.error_description || error.message)
+            error = true
         } finally {
             loading.value = false
-            submitButton.value = 'Submission Send'
+            if(!error) {
+                submitButton.value = 'Submission Send'
+            }
         }
     }
 </script>
