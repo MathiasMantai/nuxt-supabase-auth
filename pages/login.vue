@@ -31,14 +31,27 @@
     const submitButton = ref('Send')
     let error = false
 
+    const user = useSupabaseUser()
+
+    onMounted(() => {
+        watchEffect(() => {
+            if(user.value) {
+                navigateTo("/dashboard")
+            }
+        })
+    })
+
     async function handleLogin()
     {
-
         console.log(email.value)
         try {
             submitButton.value = 'Loading...'
-            const { error } = await client.auth.signInWithOtp({ email: email.value })
+            const { error } = await client.auth.signInWithPassword({ 
+                email: email.value,
+                password: password.value 
+            })
             if (error) throw error
+
         } catch (error: any) {
             alert(error.error_description || error.message)
             error = true

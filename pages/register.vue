@@ -26,7 +26,7 @@
 
     const email = ref('')
     const password = ref('')
-    const supabase = useSupabaseClient()
+    const supabase = useSupabaseAuthClient()
 
     async function handleRegister() {
         try {
