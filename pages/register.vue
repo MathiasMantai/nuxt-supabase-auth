@@ -1,8 +1,5 @@
 <template>
     <main class="flex flex-col grow items-center justify-center">
-    
-    <div class="">
-        <br>
         <GradientBorderCard>
             <div class="flex flex-col gap-4
             text-white">
@@ -16,9 +13,6 @@
                 </form>
             </div>
         </GradientBorderCard >
-        <!-- <AlertModal :hidden="loading" /> -->
-    </div>
-
     </main>
 </template>
 
@@ -26,7 +20,7 @@
 
     const email = ref('')
     const password = ref('')
-    const supabase = useSupabaseAuthClient()
+    const supabase = useSupabaseClient()
 
     async function handleRegister() {
         try {

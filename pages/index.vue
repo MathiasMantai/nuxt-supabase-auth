@@ -27,7 +27,7 @@
 <script setup lang="ts">
 
     const email = ref('')
-    const client = useSupabaseClient()
+    const client = useSupabaseAuthClient()
     const loading = ref(true)
     const submitButton = ref('Send')
     let error = false

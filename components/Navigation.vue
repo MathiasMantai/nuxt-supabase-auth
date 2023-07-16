@@ -1,7 +1,15 @@
 <template>
-    <NuxtLink @click="handleLogout">
-        Logout
-    </NuxtLink>
+    <nav class="text-white ">
+        <NuxtLink @click="handleLogout">
+            Logout
+        </NuxtLink>
+        <NuxtLink to="/login">
+            Login
+        </NuxtLink>
+        <NuxtLink to="/register">
+            Sign Up
+        </NuxtLink>
+    </nav>
 </template> 
 
 <script setup lang="ts">
