@@ -34,7 +34,7 @@
             }
             else {
                 //redirect to confirmSignup page
-                navigateTo("/confirmSignup")
+                await navigateTo("/confirmSignup")
             }
 
             console.log(data)

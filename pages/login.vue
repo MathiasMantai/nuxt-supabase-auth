@@ -34,9 +34,9 @@
     const user = useSupabaseUser()
 
     onMounted(() => {
-        watchEffect(() => {
+        watchEffect(async () => {
             if(user.value) {
-                navigateTo("/dashboard")
+                await navigateTo("/dashboard")
             }
         })
     })
