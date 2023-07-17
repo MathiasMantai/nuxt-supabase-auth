@@ -12,7 +12,7 @@
                 <form class="flex flex-col gap-8" @submit.prevent="handleLogin">
                     <input type="text" class="w-full p-1 bg-transparent focus:outline-0 border-b-2 focus:placeholder-transparent focus:transition ease-linear delay-150" placeholder="Your E-Mail"  v-model="email" required>
                     <input type="password" class="w-full p-1 bg-transparent focus:outline-0 border-b-2 focus:placeholder-transparent focus:transition ease-linear delay-150" placeholder="Your Password"  v-model="password" required>
-                    <input type="submit" class="w-full bg-green-500 p-2" :value="submitButton">
+                    <input type="submit" class="w-full bg-green-500 p-2 cursor-pointer" :value="submitButton">
                 </form>
             </div>
         </GradientBorderCard >

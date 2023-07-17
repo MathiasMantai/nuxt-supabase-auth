@@ -1,7 +1,6 @@
 <template>
     <main class="flex flex-col grow text-white">
         Dashboard 
-        {{ data }}
     </main>
 </template>
 
@@ -19,12 +18,4 @@
     definePageMeta({
         middleware: ['auth']
     })
-
-    const {data, error } = await useFetch('/api/user', {
-        headers: useRequestHeaders(['cookie'])
-    })
-
-    // const { data, error } = await useFetch('/api/test')
-
-    console.log(error)
 </script>

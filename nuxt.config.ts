@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxtjs/supabase'],
+    modules: ['@nuxt/content', '@nuxtjs/tailwindcss', ['@nuxtjs/supabase', {autoImports: ['useSupabaseUser']}], ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'],}]],
+    ssr: true,
     devtools: { enabled: true },
     supabase: {
         url: process.env.SUPABASE_URL,
