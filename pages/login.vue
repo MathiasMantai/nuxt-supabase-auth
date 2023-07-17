@@ -16,7 +16,7 @@
                 </form>
             </div>
         </GradientBorderCard >
-        <AlertModal :hidden="loading" />
+
     </div>
 
     </main>

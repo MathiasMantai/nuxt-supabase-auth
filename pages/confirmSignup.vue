@@ -9,7 +9,3 @@
         </GradientBorderCard>
     </main>
 </template>
-
-<script setup>
-
-</script>

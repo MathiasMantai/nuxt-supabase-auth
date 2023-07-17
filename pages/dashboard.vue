@@ -26,6 +26,5 @@
 
     // const { data, error } = await useFetch('/api/test')
 
-
     console.log(error)
 </script>
