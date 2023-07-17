@@ -9,12 +9,17 @@ export const useAuthStore = defineStore('auth', () => {
     async function updateUserData() {
 
         const { data, error, refresh } = await useFetch<userData>('/api/user', {
+            
             headers: useRequestHeaders(['cookie'])
         })
+        
+
 
         userInfo.value = {
-            username: data.value.username
+            username: data.value != null ? data.value.username : '',
         }
+        
+
 
     }
 

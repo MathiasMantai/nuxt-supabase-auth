@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '@/stores/AuthStore';
+
 
     const email = ref('')
     const password = ref('')
@@ -30,13 +32,14 @@
     const loading = ref(true)
     const submitButton = ref('Send')
     let error = false
-
+    const store = useAuthStore()
     const user = useSupabaseUser()
 
     onMounted(() => {
         watchEffect(async () => {
             if(user.value) {
                 await navigateTo("/dashboard")
+                store.updateUserData()
             }
         })
     })

@@ -7,5 +7,16 @@
 </template>
 
 <script setup lang="ts">
+    import { useAuthStore } from '@/stores/AuthStore';
+    const store = useAuthStore()
+    const user = useSupabaseUser()
 
+    onMounted(() => {
+        watchEffect(async () => {
+            if(user.value) {
+                await navigateTo("/dashboard")
+                store.updateUserData()
+            }
+        })
+    })
 </script>

@@ -1,6 +1,8 @@
 <template>
-    <main class="flex flex-col grow text-white">
+    <main class="flex flex-col grow text-white items-center justify-center">
+        <GradientBorderCard>
         Dashboard 
+        </GradientBorderCard>
     </main>
 </template>
 
@@ -8,9 +10,9 @@
     const user = useSupabaseUser()
 
     onMounted(() => {
-        watchEffect(() => {
+        watchEffect(async () => {
             if(!user.value) {
-                navigateTo("/")
+                await navigateTo("/")
             }
         })
     })
