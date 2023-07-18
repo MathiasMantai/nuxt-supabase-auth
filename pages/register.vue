@@ -16,9 +16,12 @@
     </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
+
+
 
 const user = useSupabaseUser()
+
 
     onMounted(() => {
         watchEffect(async () => {
@@ -34,6 +37,8 @@ const user = useSupabaseUser()
 
     async function handleRegister() {
         try {
+            console.log(email.value)
+            console.log(password.value)
             const { data, error } = await supabase.auth.signUp({
                 email: email.value,
                 password: password.value
@@ -43,11 +48,16 @@ const user = useSupabaseUser()
                 throw error
             }
             else {
+                //create userprofile in database
+                console.log(user)
+                const { data, error } = await supabase.from('userdata').insert({
+                    userId: '',
+                })
                 //redirect to confirmSignup page
                 await navigateTo("/confirmSignup")
             }
 
-            console.log(data)
+
         }
         catch(error) {
             console.log(error)

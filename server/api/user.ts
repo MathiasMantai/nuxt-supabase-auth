@@ -13,7 +13,7 @@ export default defineEventHandler( async (event) => {
 
     const serverClient = serverSupabaseClient<Database>(event)
 
-    const { data, error } = await serverClient.from('profiles').select().eq('id', user.id).limit(1)
+    const { data, error } = await serverClient.from('userdata').select().eq('userId', user.id).limit(1)
 
     return {
         username: data![0]["username"] ?? ''

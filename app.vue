@@ -1,6 +1,11 @@
 <template>
-    <div  class="h-[100dvh] flex flex-col bg-zinc-900">
-        <Navigation />
-        <NuxtPage />
+    <div  class="">
+        <NuxtLayout :name="(user ? 'auth' : 'non-auth')">
+            <NuxtPage />
+        </NuxtLayout>
     </div>
 </template>
+
+<script setup>
+    const user = useSupabaseUser()
+</script>
